@@ -1,6 +1,6 @@
 # ODBC2Parquet
 
-This is a Docker image for conveniently convert data from ODBC into Parquet files.
+This is a Docker image for conveniently converting data from ODBC into Parquet files, using ODBC2Parquet (https://github.com/pacman82/odbc2parquet)
 
 Currently supports two drivers:
 
@@ -38,3 +38,5 @@ docker run --rm -it -v $PWD:/data query -vvv \
   output.parquet  \
   "SELECT * FROM results"
 ```
+
+Output will be in output.parquet file
