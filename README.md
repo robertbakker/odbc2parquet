@@ -40,3 +40,20 @@ docker run --rm -v $PWD:/data robertbakker/odbc2parquet -vvv query \
 ```
 
 Output will be in output.parquet file
+
+### Example PostgreSQL with SSH tunnel
+
+Setup an SSH tunnel to the PostgreSQL server and bind to Docker host IP:
+
+```bash
+ssh -N -L 172.17.0.1:1111:localhost:5432 root@<host>
+```
+
+Run (172.17.0.1 is always the IP address of the Docker host on Linux):
+
+```bash
+docker run --rm -v $PWD:/data robertbakker/odbc2parquet -vvv query \
+  --connection-string "Driver={PostgreSQL ANSI};Server=172.17.0.1;Port=1111;Database=db;Uid=user;Pwd=pass;Option=3;" \
+  output.parquet  \
+  "SELECT * FROM results"
+```
