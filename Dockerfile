@@ -19,3 +19,5 @@ RUN apt-get -y update && apt-get -y install wget libodbc1 odbc-postgresql \
 WORKDIR /data
 
 COPY --from=build /usr/local/cargo/bin/odbc2parquet /usr/local/bin/odbc2parquet
+
+ENTRYPOINT ["odbc2parquet"]
