@@ -23,18 +23,18 @@ PostgreSQL ANSI
 PostgreSQL Unicode
         Description=PostgreSQL ODBC driver (Unicode version)
 
-MySQL ODBC 8.0 Unicode Driver
-        Driver=/usr/lib/x86_64-linux-gnu/odbc/libmyodbc8w.so
+MySQL ODBC 8.0 Driver
+        Driver=/usr/local/lib/libmyodbc8w.so
 
-MySQL ODBC 8.0 ANSI Driver
-        Driver=/usr/lib/x86_64-linux-gnu/odbc/libmyodbc8a.so
+MySQL ODBC 8.0
+        Driver=/usr/local/lib/libmyodbc8a.so
 ```
 
 ### Example MySQL
 
 ```bash
 docker run --rm -v $PWD:/data robertbakker/odbc2parquet -vvv query \
-  --connection-string "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;Database=db;User=root;Password=verysecret;Port=3306;Option=3;" \
+  --connection-string "Driver={MySQL ODBC 8.0 Driver};Server=localhost;Database=db;User=root;Password=verysecret;Port=3306;Option=3;" \
   output.parquet  \
   "SELECT * FROM results"
 ```
