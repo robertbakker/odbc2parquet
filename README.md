@@ -12,7 +12,7 @@ Currently supports two drivers:
 ### List drivers
 
 ```bash
-docker run --rm -v $PWD:/data robertbakker/odbc2parquet list-drivers
+docker run --rm robertbakker/odbc2parquet list-drivers
 ```
 Outputs:
 
@@ -33,7 +33,7 @@ MySQL ODBC 8.0 ANSI Driver
 ### Example MySQL
 
 ```bash
-docker run --rm -it -v $PWD:/data robertbakker/odbc2parquet query -vvv \
+docker run --rm -v $PWD:/data robertbakker/odbc2parquet -vvv query \
   --connection-string "Driver={MySQL ODBC 8.0 Unicode Driver};Server=localhost;Database=db;User=root;Password=verysecret;Port=3306;Option=3;" \
   output.parquet  \
   "SELECT * FROM results"
